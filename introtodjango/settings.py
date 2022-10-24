@@ -1,3 +1,6 @@
+import environ
+env = environ.Env()
+environ.Env.read_env()
 """
 Django settings for introtodjango project.
 
@@ -21,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4e&e=yx=72v6!hyv437=6dl)9fd4*ihe_2$w8xg*ng9%c(s3%p'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,6 +46,8 @@ INSTALLED_APPS = [
     "blog",
     "ecommerce",
     "crispy_forms",
+
+    #accounts
 ]
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
