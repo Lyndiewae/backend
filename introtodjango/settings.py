@@ -1,6 +1,8 @@
 import environ
 env = environ.Env()
 environ.Env.read_env()
+
+
 """
 Django settings for introtodjango project.
 
@@ -46,6 +48,8 @@ INSTALLED_APPS = [
     "blog",
     "ecommerce",
     "crispy_forms",
+    "accounts",
+    "jazzmin",
 
     #accounts
 ]
@@ -151,3 +155,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+LOGIN_REDIRECT_URL = "blog:profile"
+LOGOUT_REDIRECT_URL = "blog:post_list"

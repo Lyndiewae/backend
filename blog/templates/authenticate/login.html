@@ -9,7 +9,7 @@
         <h2>Log In</h2>
         <form method = "post" class="form">
             {% csrf_token %}
-            {{ form|cripsy }}
+            {{form|crispy}}
             <button type="submit">Login</button>
             <p class="text-center">Hahaha You don't have an account <a href="#">Create an account!</a>.</p>
         </form>

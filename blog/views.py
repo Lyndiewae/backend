@@ -8,12 +8,14 @@ from.forms import CommentForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm 
+from django.contrib.auth.decorators import login_required
 
 
 
 # Create your views here.
-def lindz(request): 
-    return HttpResponse("Wassup!")
+@login_required(login_url='blog:login')
+def profileView(request): 
+    return render(request, 'profile.html', { })
 
 #Class based view
 class MyViews(TemplateView): 
@@ -64,7 +66,7 @@ def loginView(request):
             if user is not None:
                 login (request,user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("profile")
+                return redirect("blog:profile")
             else:
                 messages.error(request, f"Invalid username or password.")
         else:
@@ -72,4 +74,14 @@ def loginView(request):
     form = AuthenticationForm()
     return render(request, 'authenticate/login.html', context = {"form":form})
 
+
+def logoutView(request):
+    logout(request)
+    return redirect('/')
+
+def contactView(request):
+    return render(request, "contact.html", {})
+
+def aboutView(request):
+    return render(request, "about.html", {})
 

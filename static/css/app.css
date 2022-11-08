@@ -53,9 +53,9 @@ nav{
 .nav-links a{
     color: var(--text-color);
     text-decoration: none;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-family: var(--headling-font);
 }
 
@@ -159,7 +159,7 @@ nav > .burger > div{
     text-decoration: none;
 }
 .active{
-    background-color: black;
+    background-color: grey;
     color: antiquewhite;
 }
 .card-wrapper{
